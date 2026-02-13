@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz — Guerre du Vietnam</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="contexte.html">Contexte historique</a>
+      <a href="journal.html">Mon carnet d'apprentissage</a>
+      <a href="quiz.html" class="active">Quiz interactif</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Quiz interactif</h1>
+    <p>Teste tes connaissances en 5 questions.</p>
+
+    <form id="quiz-form" class="quiz"></form>
+
+    <div class="quiz-actions">
+      <button id="check-btn" class="btn" type="button">Valider mes réponses</button>
+      <button id="reset-btn" class="btn secondary" type="button">Recommencer</button>
+    </div>
+
+    <p id="result" class="result" aria-live="polite"></p>
+  </main>
+
+  <footer>
+    <p>Le quiz est là pour vérifier l'essentiel de manière rapide.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
