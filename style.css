@@ -1,10 +1,10 @@
 :root {
-  --bg: #f6f7fb;
-  --text: #1e2433;
-  --accent: #1457b0;
-  --accent-dark: #0e3d7d;
-  --card: #ffffff;
-  --muted: #6a7285;
+  --bg: #f4f7ff;
+  --text: #1b2440;
+  --accent: #295acb;
+  --accent-dark: #1e4399;
+  --card: #ffffffcc;
+  --muted: #5f6881;
 }
 
 * {
@@ -13,19 +13,19 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
   color: var(--text);
-  background: var(--bg);
+  background: radial-gradient(circle at top, #eef3ff 0%, #f8fbff 42%, #f4f7ff 100%);
   line-height: 1.6;
 }
 
 header {
-  background: #0f1d35;
+  background: linear-gradient(135deg, #0f1d35, #1f3d75 62%, #295acb);
   color: white;
 }
 
 .hero {
-  min-height: 45vh;
+  min-height: 52vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -41,18 +41,26 @@ nav {
 nav a {
   color: white;
   text-decoration: none;
-  padding: 0.5rem 0.7rem;
-  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  transition: background-color 0.25s ease, transform 0.2s ease;
 }
 
 nav a:hover,
 nav a.active {
   background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
 }
 
 .hero-content {
-  max-width: 780px;
+  max-width: 860px;
   padding: 2rem 1.5rem 2.8rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 h1 {
@@ -61,24 +69,36 @@ h1 {
 }
 
 .container {
-  width: min(960px, 92%);
+  width: min(1000px, 92%);
   margin: 2rem auto;
 }
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
 }
 
 .card,
 .entry,
 .quiz fieldset,
-.timeline article {
+.timeline article,
+.lock-card {
   background: var(--card);
-  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  border: 1px solid #dce6ff;
+  border-radius: 14px;
   padding: 1rem 1.2rem;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 30px rgba(41, 90, 203, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover,
+.entry:hover,
+.timeline article:hover,
+.lock-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(33, 68, 156, 0.17);
 }
 
 .entry,
@@ -96,14 +116,16 @@ h1 {
   background: var(--accent);
   color: white;
   padding: 0.65rem 1rem;
-  border-radius: 8px;
+  border-radius: 10px;
   text-decoration: none;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .btn:hover {
   background: var(--accent-dark);
+  transform: translateY(-1px);
 }
 
 .btn.secondary {
@@ -115,12 +137,14 @@ h1 {
   margin: 0 0 1rem;
 }
 
-.quiz legend {
+.quiz legend,
+.decoder-label {
   font-weight: bold;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.65rem;
 }
 
-.quiz label {
+.quiz label,
+.decoder-row {
   display: block;
   margin-bottom: 0.45rem;
 }
@@ -133,7 +157,7 @@ h1 {
 
 .result {
   margin-top: 1rem;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: bold;
 }
 
@@ -143,17 +167,8 @@ footer {
   color: var(--muted);
 }
 
-
 .hidden {
   display: none;
-}
-
-.lock-card {
-  background: var(--card);
-  border-radius: 12px;
-  padding: 1rem 1.2rem;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-  margin-bottom: 1rem;
 }
 
 .lock-row {
@@ -164,22 +179,45 @@ footer {
 }
 
 .lock-icon {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 }
 
-#quiz-password {
+input[type="text"],
+input[type="password"] {
   padding: 0.6rem 0.7rem;
-  border: 1px solid #cbd5e1;
+  border: 1px solid #c3d0ee;
   border-radius: 8px;
 }
 
 .lock-message {
   margin-top: 0.7rem;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .lock-error {
   color: #b91c1c;
+}
+
+.small-note {
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.trail-data {
+  margin-top: 0.8rem;
+  padding-left: 1.1rem;
+}
+
+.fade-in {
+  animation: fadeIn 0.7s ease;
+}
+
+.reveal {
+  animation: rise 0.6s ease both;
+}
+
+.pop {
+  animation: pop 0.45s ease both;
 }
 
 .shake {
@@ -192,4 +230,19 @@ footer {
   50% { transform: translateX(4px); }
   75% { transform: translateX(-4px); }
   100% { transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
 }
