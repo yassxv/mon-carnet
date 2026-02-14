@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeu de piste — Musée Indochine</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="contexte.html">Contexte historique</a>
+      <a href="journal.html">Mon carnet d'apprentissage</a>
+      <a href="quiz.html">Quiz interactif</a>
+      <a href="jeu-de-piste.html" class="active">Jeu de piste</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Jeu de piste (facultatif)</h1>
+    <p>
+      Mission : aller jusqu'au <strong>Musée de l'Armée (Invalides, Paris)</strong>,
+      qui présente des éléments liés à l'histoire militaire française dont l'Indochine.
+    </p>
+
+    <section class="card reveal">
+      <h2>Guidage en direct</h2>
+      <p>Autorise la géolocalisation pour afficher ta position et la direction vers le musée.</p>
+      <div class="quiz-actions">
+        <button id="start-trail" class="btn" type="button">Démarrer le guidage</button>
+        <a id="maps-link" class="btn secondary hidden" target="_blank" rel="noopener noreferrer">Ouvrir l'itinéraire</a>
+      </div>
+      <p id="trail-status" class="lock-message" aria-live="polite"></p>
+      <ul id="trail-data" class="trail-data hidden"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Option libre pour prolonger le projet hors de la classe.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

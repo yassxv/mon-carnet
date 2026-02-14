@@ -13,19 +13,27 @@
       <a href="contexte.html">Contexte historique</a>
       <a href="journal.html">Mon carnet d'apprentissage</a>
       <a href="quiz.html" class="active">Quiz interactif</a>
+      <a href="jeu-de-piste.html">Jeu de piste</a>
     </nav>
   </header>
 
   <main class="container">
     <h1>Quiz interactif</h1>
-    <p>Teste tes connaissances en 5 questions.</p>
+    <p>Déchiffre le mot de passe via les énigmes, puis lance le quiz de connaissances.</p>
 
-    <section class="lock-card" id="lock-card">
-      <h2>Accès au quiz</h2>
-      <p>Entre le mot de passe pour déverrouiller le questionnaire.</p>
+    <section class="lock-card reveal" id="decoder-card">
+      <h2>Étape 1 — Décrypte le mot de passe</h2>
+      <p class="small-note">Tu pourras remplacer les questions/réponses plus tard directement dans <code>script.js</code>.</p>
+      <form id="decoder-form" class="decoder-form"></form>
+      <button id="decode-btn" class="btn" type="button">Déchiffrer</button>
+      <p id="decoder-message" class="lock-message" aria-live="polite"></p>
+    </section>
+
+    <section class="lock-card hidden" id="lock-card">
+      <h2>Étape 2 — Vérifie le mot de passe</h2>
       <div class="lock-row">
-        <span class="lock-icon" aria-hidden="true">🔒</span>
-        <input id="quiz-password" type="password" placeholder="Mot de passe" />
+        <span class="lock-icon" aria-hidden="true">🔐</span>
+        <input id="quiz-password" type="text" placeholder="Mot de passe trouvé" />
         <button id="unlock-btn" class="btn" type="button">Déverrouiller</button>
       </div>
       <p id="lock-message" class="lock-message" aria-live="polite"></p>
@@ -42,7 +50,7 @@
   </main>
 
   <footer>
-    <p>Le quiz est là pour vérifier l'essentiel de manière rapide.</p>
+    <p>Le quiz est là pour vérifier l'essentiel de manière active.</p>
   </footer>
 
   <script src="script.js"></script>
