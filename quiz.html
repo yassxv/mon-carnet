@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz — Guerre du Vietnam</title>
+  <title>Quiz — Guerre d'Indochine</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -20,9 +20,20 @@
     <h1>Quiz interactif</h1>
     <p>Teste tes connaissances en 5 questions.</p>
 
-    <form id="quiz-form" class="quiz"></form>
+    <section class="lock-card" id="lock-card">
+      <h2>Accès au quiz</h2>
+      <p>Entre le mot de passe pour déverrouiller le questionnaire.</p>
+      <div class="lock-row">
+        <span class="lock-icon" aria-hidden="true">🔒</span>
+        <input id="quiz-password" type="password" placeholder="Mot de passe" />
+        <button id="unlock-btn" class="btn" type="button">Déverrouiller</button>
+      </div>
+      <p id="lock-message" class="lock-message" aria-live="polite"></p>
+    </section>
 
-    <div class="quiz-actions">
+    <form id="quiz-form" class="quiz hidden"></form>
+
+    <div class="quiz-actions hidden" id="quiz-actions">
       <button id="check-btn" class="btn" type="button">Valider mes réponses</button>
       <button id="reset-btn" class="btn secondary" type="button">Recommencer</button>
     </div>
