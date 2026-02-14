@@ -142,3 +142,54 @@ footer {
   padding: 1.5rem;
   color: var(--muted);
 }
+
+
+.hidden {
+  display: none;
+}
+
+.lock-card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  margin-bottom: 1rem;
+}
+
+.lock-row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.lock-icon {
+  font-size: 1.4rem;
+}
+
+#quiz-password {
+  padding: 0.6rem 0.7rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+.lock-message {
+  margin-top: 0.7rem;
+  font-weight: bold;
+}
+
+.lock-error {
+  color: #b91c1c;
+}
+
+.shake {
+  animation: shake 0.25s linear 2;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}

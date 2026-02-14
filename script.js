@@ -30,6 +30,12 @@ const form = document.getElementById("quiz-form");
 const result = document.getElementById("result");
 const checkBtn = document.getElementById("check-btn");
 const resetBtn = document.getElementById("reset-btn");
+const lockCard = document.getElementById("lock-card");
+const quizPassword = document.getElementById("quiz-password");
+const unlockBtn = document.getElementById("unlock-btn");
+const lockMessage = document.getElementById("lock-message");
+const quizActions = document.getElementById("quiz-actions");
+const accessCode = "indochine1954";
 
 function renderQuiz() {
   form.innerHTML = "";
@@ -85,8 +91,31 @@ function resetQuiz() {
   result.textContent = "";
 }
 
-if (form && result && checkBtn && resetBtn) {
-  renderQuiz();
+function unlockQuiz() {
+  if (!quizPassword || !lockMessage || !form || !quizActions || !lockCard) return;
+
+  if (quizPassword.value.trim().toLowerCase() === accessCode) {
+    form.classList.remove("hidden");
+    quizActions.classList.remove("hidden");
+    lockCard.classList.add("hidden");
+    lockMessage.textContent = "";
+    renderQuiz();
+  } else {
+    lockMessage.textContent = "Mot de passe incorrect. Réessaie.";
+    lockMessage.classList.add("lock-error");
+    lockCard.classList.add("shake");
+    setTimeout(() => lockCard.classList.remove("shake"), 500);
+  }
+}
+
+if (form && result && checkBtn && resetBtn && unlockBtn && quizPassword) {
   checkBtn.addEventListener("click", evaluateQuiz);
   resetBtn.addEventListener("click", resetQuiz);
+  unlockBtn.addEventListener("click", unlockQuiz);
+  quizPassword.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      unlockQuiz();
+    }
+  });
 }
