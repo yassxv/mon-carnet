@@ -19,29 +19,30 @@
   <main class="container">
     <h1>Quiz interactif</h1>
     <p>
-      J'ai essayé de faire une petite partie interactive pour vérifier votre lecture du carnet et du Canva.
-      Le mot de passe est codé : <strong>JOEPDIJOF</strong> (indice : chaque lettre est décalée d'un cran).
+      Réponds aux 11 questions : si tu fais un sans-faute, tu obtiens un code secret.
+      Ce code te permettra d'ouvrir le cadenas final.
     </p>
 
-    <section class="lock-card reveal" id="lock-card">
-      <h2>Déverrouille le quiz</h2>
-      <div class="lock-row">
-        <span class="lock-icon" id="lock-icon" aria-hidden="true">🔒</span>
-        <input id="quiz-password" type="text" placeholder="Mot de passe" />
-        <button id="unlock-btn" class="btn" type="button">Déverrouiller</button>
-      </div>
-      <p id="lock-message" class="lock-message" aria-live="polite"></p>
-      <p id="unlock-note" class="hidden unlock-note">Bravo, vous n'avez rien gagné, sauf un peu de connaissances (que vous aviez peut-être déjà).</p>
-    </section>
+    <form id="quiz-form" class="quiz"></form>
 
-    <form id="quiz-form" class="quiz hidden"></form>
-
-    <div class="quiz-actions hidden" id="quiz-actions">
+    <div class="quiz-actions" id="quiz-actions">
       <button id="check-btn" class="btn" type="button">Valider mes réponses</button>
       <button id="reset-btn" class="btn secondary" type="button">Recommencer</button>
     </div>
 
     <p id="result" class="result" aria-live="polite"></p>
+
+    <section id="code-panel" class="lock-card reveal hidden">
+      <h2>Code débloqué</h2>
+      <p>Bravo pour le sans-faute. Ton code est : <strong id="reward-code"></strong></p>
+      <div class="lock-row">
+        <span class="lock-icon" id="lock-icon" aria-hidden="true">🔒</span>
+        <input id="lock-code" type="text" placeholder="Entre le code" />
+        <button id="unlock-lock-btn" class="btn" type="button">Ouvrir le cadenas</button>
+      </div>
+      <p id="lock-message" class="lock-message" aria-live="polite"></p>
+      <p id="unlock-note" class="hidden unlock-note">Bravo... vous n'avez rien gagner, sauf du savoir.</p>
+    </section>
   </main>
 
   <footer>
@@ -49,6 +50,7 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="presence.js"></script>
   <script src="page-transitions.js"></script>
 </body>
 </html>
