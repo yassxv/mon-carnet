@@ -94,7 +94,7 @@ const questions = [
     text: "Qui avait initialement le rôle de jouer le couple gay dans le groupe ? (2 réponses)",
     type: "multiple",
     options: ["Faiza", "Lois", "Adrien", "Clémence", "Yassine"],
-    answer: ["Faiza", "Lois"],
+    answer: ["Yassine", "Adrien"],
   },
 ];
 
