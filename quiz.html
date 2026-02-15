@@ -10,8 +10,7 @@
   <header>
     <nav>
       <a href="index.html">Accueil</a>
-      <a href="contexte.html">Contexte historique</a>
-      <a href="journal.html">Mon carnet d'apprentissage</a>
+      <a href="contexte.html">Fiche de révision</a>
       <a href="quiz.html" class="active">Quiz interactif</a>
       <a href="jeu-de-piste.html">Jeu de piste</a>
     </nav>
@@ -19,24 +18,20 @@
 
   <main class="container">
     <h1>Quiz interactif</h1>
-    <p>Déchiffre le mot de passe via les énigmes, puis lance le quiz de connaissances.</p>
+    <p>
+      J'ai essayé de faire une petite partie interactive pour vérifier votre lecture du carnet et du Canva.
+      Le mot de passe est codé : <strong>JOEPDIJOF</strong> (indice : chaque lettre est décalée d'un cran).
+    </p>
 
-    <section class="lock-card reveal" id="decoder-card">
-      <h2>Étape 1 — Décrypte le mot de passe</h2>
-      <p class="small-note">Tu pourras remplacer les questions/réponses plus tard directement dans <code>script.js</code>.</p>
-      <form id="decoder-form" class="decoder-form"></form>
-      <button id="decode-btn" class="btn" type="button">Déchiffrer</button>
-      <p id="decoder-message" class="lock-message" aria-live="polite"></p>
-    </section>
-
-    <section class="lock-card hidden" id="lock-card">
-      <h2>Étape 2 — Vérifie le mot de passe</h2>
+    <section class="lock-card reveal" id="lock-card">
+      <h2>Déverrouille le quiz</h2>
       <div class="lock-row">
-        <span class="lock-icon" aria-hidden="true">🔐</span>
-        <input id="quiz-password" type="text" placeholder="Mot de passe trouvé" />
+        <span class="lock-icon" id="lock-icon" aria-hidden="true">🔒</span>
+        <input id="quiz-password" type="text" placeholder="Mot de passe" />
         <button id="unlock-btn" class="btn" type="button">Déverrouiller</button>
       </div>
       <p id="lock-message" class="lock-message" aria-live="polite"></p>
+      <p id="unlock-note" class="hidden unlock-note">Bravo, vous n'avez rien gagné, sauf un peu de connaissances (que vous aviez peut-être déjà).</p>
     </section>
 
     <form id="quiz-form" class="quiz hidden"></form>
@@ -50,7 +45,7 @@
   </main>
 
   <footer>
-    <p>Le quiz est là pour vérifier l'essentiel de manière active.</p>
+    <p>Le quiz est là pour apprendre en mode actif.</p>
   </footer>
 
   <script src="script.js"></script>
