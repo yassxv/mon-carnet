@@ -1,18 +1,14 @@
 const questions = [
   {
-    text: "1) En quelle année le conflit armé entre la France et le mouvement indépendantiste vietnamien commence-t-il réellement ?",
+    id: "q8",
+    text: "Quelle bataille marque la fin de la guerre en 1954 ?",
     type: "single",
-    options: ["1939", "1945", "1946", "1950"],
-    answer: ["1946"],
+    options: ["La bataille de Verdun", "La bataille de Diên Biên Phu", "La bataille de Séoul", "La bataille d’Alger"],
+    answer: ["La bataille de Diên Biên Phu"],
   },
   {
-    text: "2) Quel mouvement affronte principalement les forces françaises pendant la guerre d'Indochine ?",
-    type: "single",
-    options: ["Le Kuomintang", "Le Viet Minh", "L’OTAN", "L’Armée rouge"],
-    answer: ["Le Viet Minh"],
-  },
-  {
-    text: "3) Quel événement de 1945 crée un vide politique en Indochine et favorise les revendications d’indépendance ?",
+    id: "q3",
+    text: "Quel événement de 1945 crée un vide politique en Indochine et favorise les revendications d’indépendance ?",
     type: "single",
     options: [
       "La chute de l’Empire ottoman",
@@ -23,47 +19,36 @@ const questions = [
     answer: ["La défaite du Japon pendant la Seconde Guerre mondiale"],
   },
   {
-    text: "4) À partir de 1950, quel pays soutient massivement la France sur le plan financier et matériel ?",
+    id: "q10",
+    text: "La guerre d’Indochine est souvent considérée comme l’amorce de quel conflit plus large ?",
     type: "single",
-    options: ["Le Royaume-Uni", "L’Espagne", "Les États-Unis", "L’Australie"],
-    answer: ["Les États-Unis"],
+    options: ["La guerre de Corée", "La guerre d’Algérie", "La guerre du Vietnam", "La guerre du Golfe"],
+    answer: ["La guerre du Vietnam"],
   },
   {
-    text: "5) Pourquoi les États-Unis soutiennent-ils la France dans ce conflit ?",
+    id: "q1",
+    text: "En quelle année le conflit armé entre la France et le mouvement indépendantiste vietnamien commence-t-il réellement ?",
     type: "single",
-    options: [
-      "Pour récupérer des colonies",
-      "Pour lutter contre l’expansion du communisme pendant la guerre froide",
-      "Pour contrôler le commerce du riz",
-      "Pour aider le Japon",
-    ],
-    answer: ["Pour lutter contre l’expansion du communisme pendant la guerre froide"],
+    options: ["1939", "1945", "1946", "1950"],
+    answer: ["1946"],
   },
   {
-    text: "6) Quelle figure politique symbolise la lutte indépendantiste vietnamienne ?",
+    id: "q6",
+    text: "Quelle figure politique symbolise la lutte indépendantiste vietnamienne ?",
     type: "single",
     options: ["Mao Zedong", "Hô Chi Minh", "Kim Il-sung", "Tchang Kaï-chek"],
     answer: ["Hô Chi Minh"],
   },
   {
-    text: "7) Pourquoi cette guerre est-elle particulièrement difficile pour les soldats français ?",
+    id: "q4",
+    text: "À partir de 1950, quel pays soutient massivement la France sur le plan financier et matériel ?",
     type: "single",
-    options: [
-      "À cause du froid extrême",
-      "À cause du désert",
-      "À cause de la jungle, du climat et de la guérilla",
-      "À cause des combats en mer",
-    ],
-    answer: ["À cause de la jungle, du climat et de la guérilla"],
+    options: ["Le Royaume-Uni", "L’Espagne", "Les États-Unis", "L’Australie"],
+    answer: ["Les États-Unis"],
   },
   {
-    text: "8) Quelle bataille marque la fin de la guerre en 1954 ?",
-    type: "single",
-    options: ["La bataille de Verdun", "La bataille de Diên Biên Phu", "La bataille de Séoul", "La bataille d’Alger"],
-    answer: ["La bataille de Diên Biên Phu"],
-  },
-  {
-    text: "9) Que devient le Vietnam après les accords de 1954 ?",
+    id: "q9",
+    text: "Que devient le Vietnam après les accords de 1954 ?",
     type: "single",
     options: [
       "Il reste une colonie française",
@@ -74,13 +59,39 @@ const questions = [
     answer: ["Il est divisé en deux zones, Nord et Sud"],
   },
   {
-    text: "10) La guerre d’Indochine est souvent considérée comme l’amorce de quel conflit plus large ?",
+    id: "q2",
+    text: "Quel mouvement affronte principalement les forces françaises pendant la guerre d'Indochine ?",
     type: "single",
-    options: ["La guerre de Corée", "La guerre d’Algérie", "La guerre du Vietnam", "La guerre du Golfe"],
-    answer: ["La guerre du Vietnam"],
+    options: ["Le Kuomintang", "Le Viet Minh", "L’OTAN", "L’Armée rouge"],
+    answer: ["Le Viet Minh"],
   },
   {
-    text: "11) Qui avait initialement le rôle de jouer le couple gay dans le groupe ? (2 réponses)",
+    id: "q7",
+    text: "Pourquoi cette guerre est-elle particulièrement difficile pour les soldats français ?",
+    type: "single",
+    options: [
+      "À cause du froid extrême",
+      "À cause du désert",
+      "À cause de la jungle, du climat et de la guérilla",
+      "À cause des combats en mer",
+    ],
+    answer: ["À cause de la jungle, du climat et de la guérilla"],
+  },
+  {
+    id: "q5",
+    text: "Pourquoi les États-Unis soutiennent-ils la France dans ce conflit ?",
+    type: "single",
+    options: [
+      "Pour récupérer des colonies",
+      "Pour lutter contre l’expansion du communisme pendant la guerre froide",
+      "Pour contrôler le commerce du riz",
+      "Pour aider le Japon",
+    ],
+    answer: ["Pour lutter contre l’expansion du communisme pendant la guerre froide"],
+  },
+  {
+    id: "q11",
+    text: "Qui avait initialement le rôle de jouer le couple gay dans le groupe ? (2 réponses)",
     type: "multiple",
     options: ["Faiza", "Lois", "Adrien", "Clémence", "Yassine"],
     answer: ["Faiza", "Lois"],
@@ -88,6 +99,16 @@ const questions = [
 ];
 
 const rewardCode = "DIEN1954";
+const codeHints = [
+  "Case 1 : mets la lettre n°1 du mot <strong>Diên</strong> (bonne réponse de la question sur la bataille finale).",
+  "Case 2 : mets la lettre n°2 du mot <strong>VIet</strong> (bonne réponse sur le mouvement qui combat la France).",
+  "Case 3 : mets la lettre n°2 du mot <strong>dÉfaite</strong> (bonne réponse sur l’événement de 1945).",
+  "Case 4 : mets la lettre n°1 du mot <strong>Nord</strong> (bonne réponse sur le Vietnam après 1954).",
+  "Case 5 : mets le chiffre n°1 de la réponse <strong>1946</strong> (question sur le début du conflit).",
+  "Case 6 : mets le chiffre n°2 de la réponse <strong>1946</strong>.",
+  "Case 7 : mets le chiffre n°2 de <strong>1954</strong> (dans la question sur la fin de la guerre).",
+  "Case 8 : mets le chiffre n°4 de <strong>1954</strong>.",
+];
 
 const form = document.getElementById("quiz-form");
 const result = document.getElementById("result");
@@ -95,11 +116,11 @@ const checkBtn = document.getElementById("check-btn");
 const resetBtn = document.getElementById("reset-btn");
 
 const codePanel = document.getElementById("code-panel");
-const rewardCodeText = document.getElementById("reward-code");
+const codeSlots = document.getElementById("code-slots");
+const decodeSteps = document.getElementById("decode-steps");
 const lockCodeInput = document.getElementById("lock-code");
 const unlockLockBtn = document.getElementById("unlock-lock-btn");
 const lockMessage = document.getElementById("lock-message");
-const lockCard = document.getElementById("lock-card");
 const lockIcon = document.getElementById("lock-icon");
 const unlockNote = document.getElementById("unlock-note");
 
@@ -117,24 +138,42 @@ function renderQuiz() {
 
   questions.forEach((q, index) => {
     const fieldset = document.createElement("fieldset");
+    fieldset.className = "quiz-card";
+
     const legend = document.createElement("legend");
-    legend.textContent = q.text;
+    legend.innerHTML = `<span class="question-index">${index + 1}</span> ${q.text}`;
     fieldset.appendChild(legend);
 
     q.options.forEach((option) => {
       const label = document.createElement("label");
+      label.className = "quiz-option";
+
       const input = document.createElement("input");
       input.type = q.type === "multiple" ? "checkbox" : "radio";
       input.name = `question-${index}`;
       input.value = option;
 
+      const optionText = document.createElement("span");
+      optionText.textContent = option;
+
       label.appendChild(input);
-      label.append(` ${option}`);
+      label.appendChild(optionText);
       fieldset.appendChild(label);
     });
 
     form.appendChild(fieldset);
   });
+}
+
+function renderCodeHints() {
+  if (!codeSlots || !decodeSteps) return;
+
+  codeSlots.innerHTML = rewardCode
+    .split("")
+    .map((_, index) => `<span class="code-slot">${index + 1}</span>`)
+    .join("");
+
+  decodeSteps.innerHTML = codeHints.map((hint) => `<li>${hint}</li>`).join("");
 }
 
 function isQuestionCorrect(question, selectedValues) {
@@ -162,14 +201,13 @@ function evaluateQuiz() {
   const percent = Math.round((score / questions.length) * 100);
   result.textContent = `Résultat : ${score}/${questions.length} (${percent}%).`;
 
-  if (score === questions.length && codePanel && rewardCodeText) {
+  if (score === questions.length && codePanel) {
     codePanel.classList.remove("hidden");
-    rewardCodeText.textContent = rewardCode;
+    renderCodeHints();
   } else if (codePanel) {
     codePanel.classList.add("hidden");
     if (lockMessage) lockMessage.textContent = "";
     if (unlockNote) unlockNote.classList.add("hidden");
-    if (lockCard) lockCard.classList.remove("opened");
     if (lockIcon) {
       lockIcon.classList.remove("unlocked");
       lockIcon.textContent = "🔒";
@@ -185,7 +223,6 @@ function resetQuiz() {
   if (lockCodeInput) lockCodeInput.value = "";
   if (lockMessage) lockMessage.textContent = "";
   if (unlockNote) unlockNote.classList.add("hidden");
-  if (lockCard) lockCard.classList.remove("opened", "shake");
   if (lockIcon) {
     lockIcon.classList.remove("unlocked");
     lockIcon.textContent = "🔒";
@@ -193,20 +230,20 @@ function resetQuiz() {
 }
 
 function unlockKnowledgeLock() {
-  if (!lockCodeInput || !lockMessage || !lockCard || !lockIcon || !unlockNote) return;
+  if (!lockCodeInput || !lockMessage || !lockIcon || !unlockNote || !codePanel) return;
 
   if (normalizeText(lockCodeInput.value) === normalizeText(rewardCode)) {
     lockMessage.textContent = "Code validé : cadenas déverrouillé.";
     lockMessage.classList.remove("lock-error");
-    lockCard.classList.add("opened");
+    codePanel.classList.add("opened");
     lockIcon.classList.add("unlocked");
     lockIcon.textContent = "🔓";
     unlockNote.classList.remove("hidden");
   } else {
-    lockMessage.textContent = "Code incorrect. Vérifie tes réponses au quiz puis réessaie.";
+    lockMessage.textContent = "Code incorrect. Reprends les consignes du quiz puis réessaie.";
     lockMessage.classList.add("lock-error");
-    lockCard.classList.add("shake");
-    setTimeout(() => lockCard.classList.remove("shake"), 500);
+    codePanel.classList.add("shake");
+    setTimeout(() => codePanel.classList.remove("shake"), 500);
   }
 }
 

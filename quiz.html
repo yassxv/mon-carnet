@@ -19,8 +19,7 @@
   <main class="container">
     <h1>Quiz interactif</h1>
     <p>
-      Réponds aux 11 questions : si tu fais un sans-faute, tu obtiens un code secret.
-      Ce code te permettra d'ouvrir le cadenas final.
+      Réponds aux 11 questions. Si tu fais un sans-faute, tu débloques les consignes pour reconstituer le code du cadenas.
     </p>
 
     <form id="quiz-form" class="quiz"></form>
@@ -33,11 +32,15 @@
     <p id="result" class="result" aria-live="polite"></p>
 
     <section id="code-panel" class="lock-card reveal hidden">
-      <h2>Code débloqué</h2>
-      <p>Bravo pour le sans-faute. Ton code est : <strong id="reward-code"></strong></p>
+      <h2>Étape 2 — Reconstitue le code</h2>
+      <p>
+        Bien joué. Maintenant, applique les consignes du quiz pour remplir le code ci-dessous.
+      </p>
+      <div id="code-slots" class="code-slots" aria-label="Emplacements du code"></div>
+      <ol id="decode-steps" class="decode-steps"></ol>
       <div class="lock-row">
         <span class="lock-icon" id="lock-icon" aria-hidden="true">🔒</span>
-        <input id="lock-code" type="text" placeholder="Entre le code" />
+        <input id="lock-code" type="text" placeholder="Entre le code reconstitué" />
         <button id="unlock-lock-btn" class="btn" type="button">Ouvrir le cadenas</button>
       </div>
       <p id="lock-message" class="lock-message" aria-live="polite"></p>
