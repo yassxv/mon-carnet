@@ -265,6 +265,16 @@ footer {
   font-size: 1.3rem;
 }
 
+.lock-icon.unlocked {
+  animation: unlockPop 0.55s ease;
+}
+
+.unlock-note {
+  margin-top: 0.8rem;
+  font-style: italic;
+  color: #1d3a6f;
+}
+
 input[type="text"],
 input[type="password"] {
   padding: 0.6rem 0.7rem;
@@ -340,6 +350,12 @@ input[type="password"] {
 @keyframes floatBlob {
   from { transform: translateY(0) translateX(0) scale(1); }
   to { transform: translateY(-22px) translateX(12px) scale(1.08); }
+}
+
+@keyframes unlockPop {
+  0% { transform: scale(0.7) rotate(-20deg); }
+  60% { transform: scale(1.2) rotate(8deg); }
+  100% { transform: scale(1) rotate(0deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
