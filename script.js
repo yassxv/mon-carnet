@@ -1,12 +1,12 @@
 const questions = [
   {
-    text: "1) En quelle année commence réellement le conflit armé entre la France et le mouvement indépendantiste vietnamien ?",
+    text: "1) En quelle année le conflit armé entre la France et le mouvement indépendantiste vietnamien commence-t-il réellement ?",
     type: "single",
     options: ["1939", "1945", "1946", "1950"],
     answer: ["1946"],
   },
   {
-    text: "2) Quel mouvement combat principalement les forces françaises pendant la guerre ?",
+    text: "2) Quel mouvement affronte principalement les forces françaises pendant la guerre d'Indochine ?",
     type: "single",
     options: ["Le Kuomintang", "Le Viet Minh", "L’OTAN", "L’Armée rouge"],
     answer: ["Le Viet Minh"],
@@ -23,13 +23,13 @@ const questions = [
     answer: ["La défaite du Japon pendant la Seconde Guerre mondiale"],
   },
   {
-    text: "4) Quel pays aide financièrement et matériellement la France surtout à partir de 1950 ?",
+    text: "4) À partir de 1950, quel pays soutient massivement la France sur le plan financier et matériel ?",
     type: "single",
     options: ["Le Royaume-Uni", "L’Espagne", "Les États-Unis", "L’Australie"],
     answer: ["Les États-Unis"],
   },
   {
-    text: "5) Pourquoi les États-Unis soutiennent-ils la France ?",
+    text: "5) Pourquoi les États-Unis soutiennent-ils la France dans ce conflit ?",
     type: "single",
     options: [
       "Pour récupérer des colonies",
@@ -40,13 +40,13 @@ const questions = [
     answer: ["Pour lutter contre l’expansion du communisme pendant la guerre froide"],
   },
   {
-    text: "6) Quel chef incarne la lutte indépendantiste vietnamienne ?",
+    text: "6) Quelle figure politique symbolise la lutte indépendantiste vietnamienne ?",
     type: "single",
     options: ["Mao Zedong", "Hô Chi Minh", "Kim Il-sung", "Tchang Kaï-chek"],
     answer: ["Hô Chi Minh"],
   },
   {
-    text: "7) Pourquoi la guerre est-elle difficile pour les soldats français ?",
+    text: "7) Pourquoi cette guerre est-elle particulièrement difficile pour les soldats français ?",
     type: "single",
     options: [
       "À cause du froid extrême",
@@ -57,13 +57,13 @@ const questions = [
     answer: ["À cause de la jungle, du climat et de la guérilla"],
   },
   {
-    text: "8) Quelle bataille met fin à la guerre en 1954 ?",
+    text: "8) Quelle bataille marque la fin de la guerre en 1954 ?",
     type: "single",
     options: ["La bataille de Verdun", "La bataille de Diên Biên Phu", "La bataille de Séoul", "La bataille d’Alger"],
     answer: ["La bataille de Diên Biên Phu"],
   },
   {
-    text: "9) Après 1954, que devient le Vietnam ?",
+    text: "9) Que devient le Vietnam après les accords de 1954 ?",
     type: "single",
     options: [
       "Il reste une colonie française",
@@ -74,33 +74,34 @@ const questions = [
     answer: ["Il est divisé en deux zones, Nord et Sud"],
   },
   {
-    text: "10) La guerre d’Indochine est souvent considérée comme le début de quel conflit plus large ?",
+    text: "10) La guerre d’Indochine est souvent considérée comme l’amorce de quel conflit plus large ?",
     type: "single",
     options: ["La guerre de Corée", "La guerre d’Algérie", "La guerre du Vietnam", "La guerre du Golfe"],
     answer: ["La guerre du Vietnam"],
   },
   {
-    text: "11) Qui avait le rôle initial de jouer le couple gay dans le groupe ? (2 réponses)",
+    text: "11) Qui avait initialement le rôle de jouer le couple gay dans le groupe ? (2 réponses)",
     type: "multiple",
     options: ["Faiza", "Lois", "Adrien", "Clémence", "Yassine"],
     answer: ["Faiza", "Lois"],
   },
 ];
 
-const expectedPassword = "indochine";
+const rewardCode = "DIEN1954";
 
 const form = document.getElementById("quiz-form");
 const result = document.getElementById("result");
 const checkBtn = document.getElementById("check-btn");
 const resetBtn = document.getElementById("reset-btn");
 
-const quizPassword = document.getElementById("quiz-password");
-const unlockBtn = document.getElementById("unlock-btn");
+const codePanel = document.getElementById("code-panel");
+const rewardCodeText = document.getElementById("reward-code");
+const lockCodeInput = document.getElementById("lock-code");
+const unlockLockBtn = document.getElementById("unlock-lock-btn");
 const lockMessage = document.getElementById("lock-message");
 const lockCard = document.getElementById("lock-card");
 const lockIcon = document.getElementById("lock-icon");
 const unlockNote = document.getElementById("unlock-note");
-const quizActions = document.getElementById("quiz-actions");
 
 function normalizeText(value) {
   return value
@@ -159,29 +160,50 @@ function evaluateQuiz() {
   });
 
   const percent = Math.round((score / questions.length) * 100);
-  result.textContent = `Tu as ${score}/${questions.length} (${percent}%).`;
+  result.textContent = `Résultat : ${score}/${questions.length} (${percent}%).`;
+
+  if (score === questions.length && codePanel && rewardCodeText) {
+    codePanel.classList.remove("hidden");
+    rewardCodeText.textContent = rewardCode;
+  } else if (codePanel) {
+    codePanel.classList.add("hidden");
+    if (lockMessage) lockMessage.textContent = "";
+    if (unlockNote) unlockNote.classList.add("hidden");
+    if (lockCard) lockCard.classList.remove("opened");
+    if (lockIcon) {
+      lockIcon.classList.remove("unlocked");
+      lockIcon.textContent = "🔒";
+    }
+  }
 }
 
 function resetQuiz() {
   if (!form || !result) return;
   form.reset();
   result.textContent = "";
+  if (codePanel) codePanel.classList.add("hidden");
+  if (lockCodeInput) lockCodeInput.value = "";
+  if (lockMessage) lockMessage.textContent = "";
+  if (unlockNote) unlockNote.classList.add("hidden");
+  if (lockCard) lockCard.classList.remove("opened", "shake");
+  if (lockIcon) {
+    lockIcon.classList.remove("unlocked");
+    lockIcon.textContent = "🔒";
+  }
 }
 
-function unlockQuiz() {
-  if (!quizPassword || !lockMessage || !form || !quizActions || !lockCard || !lockIcon || !unlockNote) return;
+function unlockKnowledgeLock() {
+  if (!lockCodeInput || !lockMessage || !lockCard || !lockIcon || !unlockNote) return;
 
-  if (normalizeText(quizPassword.value) === expectedPassword) {
-    renderQuiz();
-    form.classList.remove("hidden");
-    quizActions.classList.remove("hidden");
-    lockMessage.textContent = "Mot de passe validé.";
+  if (normalizeText(lockCodeInput.value) === normalizeText(rewardCode)) {
+    lockMessage.textContent = "Code validé : cadenas déverrouillé.";
     lockMessage.classList.remove("lock-error");
+    lockCard.classList.add("opened");
     lockIcon.classList.add("unlocked");
     lockIcon.textContent = "🔓";
     unlockNote.classList.remove("hidden");
   } else {
-    lockMessage.textContent = "Mot de passe incorrect. Réessaie.";
+    lockMessage.textContent = "Code incorrect. Vérifie tes réponses au quiz puis réessaie.";
     lockMessage.classList.add("lock-error");
     lockCard.classList.add("shake");
     setTimeout(() => lockCard.classList.remove("shake"), 500);
@@ -241,7 +263,6 @@ function updateTrail(position) {
   const step = trailSteps[currentStep];
   const { latitude, longitude } = position.coords;
   const km = distanceKm(latitude, longitude, step.lat, step.lon);
-  const direction = bearingText(latitude, longitude, step.lat, step.lon);
 
   if (km < 0.25 && currentStep < trailSteps.length - 1) {
     trailStatus.textContent = step.doneText;
@@ -290,14 +311,18 @@ function startTrail() {
   );
 }
 
-if (form && result && checkBtn && resetBtn && unlockBtn && quizPassword) {
+if (form && result && checkBtn && resetBtn) {
+  renderQuiz();
   checkBtn.addEventListener("click", evaluateQuiz);
   resetBtn.addEventListener("click", resetQuiz);
-  unlockBtn.addEventListener("click", unlockQuiz);
-  quizPassword.addEventListener("keydown", (event) => {
+}
+
+if (unlockLockBtn && lockCodeInput) {
+  unlockLockBtn.addEventListener("click", unlockKnowledgeLock);
+  lockCodeInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      unlockQuiz();
+      unlockKnowledgeLock();
     }
   });
 }
