@@ -106,7 +106,7 @@ const codeHints = [
   "Case 4 : mets la lettre n°1 du mot <strong>Nord</strong> (bonne réponse sur le Vietnam après 1954).",
   "Case 5 : mets le chiffre n°1 de la réponse <strong>1946</strong> (question sur le début du conflit).",
   "Case 6 : mets le chiffre n°2 de la réponse <strong>1946</strong>.",
-  "Case 7 : mets le chiffre n°2 de <strong>1954</strong> (dans la question sur la fin de la guerre).",
+  "Case 7 : mets le chiffre n°3 de <strong>1954</strong> (dans la question sur la fin de la guerre).",
   "Case 8 : mets le chiffre n°4 de <strong>1954</strong>.",
 ];
 
